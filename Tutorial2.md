@@ -318,10 +318,10 @@ Using the `docker build` command, we will now create an image of our app.
 2. Run the following command:
 
 ```
-docker build -t tic3001-demo-app .
+docker build -t docker-demo-app .
 ```
 
-- Above, the `-t` flag tags the create image with `tic3001-demo-app`.
+- Above, the `-t` flag tags the create image with `docker-demo-app`.
 - `.` refers to look for the Dockerfile in the Current Working Directory (CWD)
 
 ### Running the Container
@@ -331,7 +331,7 @@ With the Image ready, we can run our React app using Docker.
 1. In the same command line/terminal window, run the following command:
 
 ```
-docker run --name my-app -p 3000:3000 -d tic3001-demo-app
+docker run --name my-app -p 3000:3000 -d docker-demo-app
 ```
 
 - Above, the flag `-p` allows to bind our systems port 3000 to the port 3000 of container.
@@ -355,19 +355,19 @@ Binding the Current Working Directory with the Docker Container allows you to ed
 macOS users:
 
 ```
-docker run --name my-app -p 3000:3000 -v $(pwd):/app -d tic3001-demo-app
+docker run --name my-app -p 3000:3000 -v $(pwd):/app -d docker-demo-app
 ```
 
 Windows Command Line users:
 
 ```
-docker run --name my-app -p 3000:3000 -v %cd%:/app -d tic3001-demo-app
+docker run --name my-app -p 3000:3000 -v %cd%:/app -d docker-demo-app
 ```
 
 Windows Powershell users:
 
 ```
-docker run --name my-app -p 3000:3000 -v ${PWD}:/app -d tic3001-demo-app
+docker run --name my-app -p 3000:3000 -v ${PWD}:/app -d docker-demo-app
 ```
 
 - The flag `-v` allows to mount the Current Working Directory as a volunme in the Docker Container.
