@@ -362,7 +362,7 @@ docker run --name my-app -p 3000:3000 -v $(pwd):/app -d docker-demo-app
 Windows Command Line users:
 
 ```
-docker run --name my-app -p 3000:3000 -v %cd%:/app -d docker-demo-app
+docker run --name my-app -p 3000:3000 -v "%cd%:/app" -d docker-demo-app
 ```
 
 Windows Powershell users:
@@ -372,6 +372,7 @@ docker run --name my-app -p 3000:3000 -v ${PWD}:/app -d docker-demo-app
 ```
 
 - The flag `-v` allows to mount the Current Working Directory as a volunme in the Docker Container.
+- Note for Windows user: There might not be any difference when mounting volumes using a window host. Rather, the application might run slower. This is a known issues as seen [here](https://stackoverflow.com/questions/65285379/docker-volume-mapping-windows-incredible-slow). A solution would be to use WSL2 instead. 
 
 2. Go to `src/App.js` and add the following code inside the `function App()`:
 
