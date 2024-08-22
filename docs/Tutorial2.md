@@ -131,7 +131,7 @@ CMD ["node", "app.js"]
     - `-p [host port]:[container port]`: Map a host port to a container port.
     - `-v [host directory]:[container directory]`: Mount a volume.
   - Example: `docker run -d --name my-app -p 3000:3000 my-node-app`
-  - Explanation: This command runs my-node-app in detached mode, names it my-app, and maps port 3000 on the host to port 3000 on the container.
+  - Explanation: This command runs the `my-node-app` image in detached mode, names it `my-app`, and maps port 3000 on the host to port 3000 on the container.
 
 - `docker ps`
 
@@ -321,7 +321,7 @@ Using the `docker build` command, we will now create an image of our app.
 docker build -t docker-demo-app .
 ```
 
-- Above, the `-t` flag tags the create image with `docker-demo-app`.
+- Above, the `-t` flag tags the create image with the name `docker-demo-app`.
 - `.` refers to look for the Dockerfile in the Current Working Directory (CWD)
 
 ### Running the Container
