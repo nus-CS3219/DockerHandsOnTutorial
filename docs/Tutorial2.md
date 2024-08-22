@@ -404,7 +404,7 @@ function toggleAnimation() {
 
 5. You should now be able to see a button that says "Toggle Spin Direction", which on clicking will change the spin direction of the React logo.
 
-![Updated React Page text](../finalReactPage.png)
+![Updated React Page text](./finalReactPage.png)
 
 6. The running container can be stopped and removed using the command:
 
@@ -428,7 +428,7 @@ docker rm my-app
 
 3. Go to `http://localhost:3001/` and you should see the following output:
 
-![Jokes API Page](../finalJokesAPI.png)
+![Jokes API Page](./finalJokesAPI.png)
 
 4. Once completed, stop and remove the container. 
 
@@ -613,7 +613,7 @@ docker-compose down
 
 3. Go to `http://localhost:3000/jokes` and you should see the following output:
 
-![Jokes Page](../finalJokesPage.png)
+![Jokes Page](./finalJokesPage.png)
 
 4. Feel free to add and edit code to see changes happen in real-time.
 
