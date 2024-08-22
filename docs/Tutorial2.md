@@ -508,7 +508,6 @@ networks:
   - Purpose: Builds or rebuilds services.
   - Common Flags:
     - `--no-cache`: Do not use cache when building the image.
-    - `--parallel`: Build images in parallel.
   - Example: `docker-compose build --no-cache`
   - Explanation: Builds the service images without using the cache.
 
