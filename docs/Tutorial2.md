@@ -351,18 +351,16 @@ Binding the Current Working Directory with the Docker Container allows you to ed
 
 *Note: Ensure you have the folder `node_modules` with all the necessary dependencies in your local system. If not, run `npm install` locally.*  
 
-1. In the same command line/terminal window, run the following command:
+1. In the same command line/terminal window, run the following command: 
 
-macOS users:
-
+macOS users:  
 ```
 docker run --name my-app -p 3000:3000 -v $(pwd):/app -d docker-demo-app
-```
-
+```  
 Windows Command Line users:
 
 ```
-docker run --name my-app -p 3000:3000 -v %cd%:/app -d docker-demo-app
+docker run --name my-app -p 3000:3000 -v "%cd%:/app" -d docker-demo-app
 ```
 
 Windows Powershell users:
@@ -371,7 +369,8 @@ Windows Powershell users:
 docker run --name my-app -p 3000:3000 -v ${PWD}:/app -d docker-demo-app
 ```
 
-- The flag `-v` allows to mount the Current Working Directory as a volunme in the Docker Container.
+- The flag `-v` allows to mount the Current Working Directory as a volume in the Docker Container.
+- Note for Windows user: Mounting volume using a window host may slow down the application. For better experience, consider using WSL2. For more details, see this [Stack Overflow post](https://stackoverflow.com/questions/65285379/docker-volume-mapping-windows-incredible-slow). Remember, while mounting volume improves developer experience, it is **not essential** for development.
 
 2. Go to `src/App.js` and add the following code inside the `function App()`:
 
