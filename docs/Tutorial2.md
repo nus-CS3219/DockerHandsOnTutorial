@@ -131,7 +131,7 @@ CMD ["node", "app.js"]
     - `-p [host port]:[container port]`: Map a host port to a container port.
     - `-v [host directory]:[container directory]`: Mount a volume.
   - Example: `docker run -d --name my-app -p 3000:3000 my-node-app`
-  - Explanation: This command runs my-node-app in detached mode, names it my-app, and maps port 3000 on the host to port 3000 on the container.
+  - Explanation: This command runs the `my-node-app` image in detached mode, names it `my-app`, and maps port 3000 on the host to port 3000 on the container.
 
 - `docker ps`
 
@@ -321,7 +321,7 @@ Using the `docker build` command, we will now create an image of our app.
 docker build -t docker-demo-app .
 ```
 
-- Above, the `-t` flag tags the create image with `docker-demo-app`.
+- Above, the `-t` flag tags the create image with the name `docker-demo-app`.
 - `.` refers to look for the Dockerfile in the Current Working Directory (CWD)
 
 ### Running the Container
@@ -332,23 +332,24 @@ With the Image ready, we can run our React app using Docker.
 
 ```
 docker run --name my-app -p 3000:3000 -d docker-demo-app
-```
-
-- Above, the flag `-p` allows to bind our systems port 3000 to the port 3000 of container.
-
+```  
+- Above, the flag `-p` allows to bind our systems port 3000 to the port 3000 of container. 
 - The flag `-d` allows to run the Docker Container in detached mode.
 
 2. Open your browser of choice and go to http://localhost:3000/ to interact with the React App.
 
-3. The running container can be stopped using the command:
+3. The running container can be stopped and removed using the command:
 
 ```
 docker stop my-app
+docker rm my-app
 ```
 
 ### Binding the Current Working Directory
 
 Binding the Current Working Directory with the Docker Container allows you to edit your code on your local system and see the changes in the app in real-time that is running on the Docker Container.
+
+*Note: Ensure you have the folder `node_modules` with all the necessary dependencies in your local system. If not, run `npm install` locally.*  
 
 1. In the same command line/terminal window, run the following command:
 
@@ -405,10 +406,11 @@ function toggleAnimation() {
 
 ![Updated React Page text](../finalReactPage.png)
 
-6. The running container can be stopped using the command:
+6. The running container can be stopped and removed using the command:
 
 ```
 docker stop my-app
+docker rm my-app
 ```
 
 > :warning: Note: If you do not bind volumes, such changes can not be seen in real-time, and the containers have to be stopped and run again, making the process tedious. Please refer to the section on [Binding the Current Working Directory](#binding-the-current-working-directory)
@@ -427,6 +429,8 @@ docker stop my-app
 3. Go to `http://localhost:3001/` and you should see the following output:
 
 ![Jokes API Page](../finalJokesAPI.png)
+
+4. Once completed, stop and remove the container. 
 
 ## Docker Compose
 
@@ -508,7 +512,6 @@ networks:
   - Purpose: Builds or rebuilds services.
   - Common Flags:
     - `--no-cache`: Do not use cache when building the image.
-    - `--parallel`: Build images in parallel.
   - Example: `docker-compose build --no-cache`
   - Explanation: Builds the service images without using the cache.
 
@@ -517,7 +520,7 @@ networks:
   - Purpose: View output from containers.
   - Common Flags:
     - `--follow` or `-f`: Follow log output.
-    - `--tail="number"`: Number of lines to show from the end of the logs for each container.
+    - `--tail [number]`: Number of lines to show from the end of the logs for each container.
   - Example: `docker-compose logs -f`
   - Explanation: Follows the log output of all containers.
 
