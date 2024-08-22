@@ -332,23 +332,24 @@ With the Image ready, we can run our React app using Docker.
 
 ```
 docker run --name my-app -p 3000:3000 -d docker-demo-app
-```
-
-- Above, the flag `-p` allows to bind our systems port 3000 to the port 3000 of container.
-
+```  
+- Above, the flag `-p` allows to bind our systems port 3000 to the port 3000 of container. 
 - The flag `-d` allows to run the Docker Container in detached mode.
 
 2. Open your browser of choice and go to http://localhost:3000/ to interact with the React App.
 
-3. The running container can be stopped using the command:
+3. The running container can be stopped and removed using the command:
 
 ```
 docker stop my-app
+docker rm my-app
 ```
 
 ### Binding the Current Working Directory
 
 Binding the Current Working Directory with the Docker Container allows you to edit your code on your local system and see the changes in the app in real-time that is running on the Docker Container.
+
+*Note: Ensure you have the folder `node_modules` with all the necessary dependencies in your local system. If not, run `npm install` locally.*  
 
 1. In the same command line/terminal window, run the following command:
 
@@ -405,10 +406,11 @@ function toggleAnimation() {
 
 ![Updated React Page text](../finalReactPage.png)
 
-6. The running container can be stopped using the command:
+6. The running container can be stopped and removed using the command:
 
 ```
 docker stop my-app
+docker rm my-app
 ```
 
 > :warning: Note: If you do not bind volumes, such changes can not be seen in real-time, and the containers have to be stopped and run again, making the process tedious. Please refer to the section on [Binding the Current Working Directory](#binding-the-current-working-directory)
@@ -427,6 +429,8 @@ docker stop my-app
 3. Go to `http://localhost:3001/` and you should see the following output:
 
 ![Jokes API Page](../finalJokesAPI.png)
+
+4. Once completed, stop and remove the container. 
 
 ## Docker Compose
 
