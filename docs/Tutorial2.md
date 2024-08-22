@@ -516,7 +516,7 @@ networks:
   - Purpose: View output from containers.
   - Common Flags:
     - `--follow` or `-f`: Follow log output.
-    - `--tail="number"`: Number of lines to show from the end of the logs for each container.
+    - `--tail [number]`: Number of lines to show from the end of the logs for each container.
   - Example: `docker-compose logs -f`
   - Explanation: Follows the log output of all containers.
 
